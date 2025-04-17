@@ -1,8 +1,18 @@
 pipeline {
     agent any
 
+    options {
+        skipDefaultCheckout() // avoid auto-clone
+    }
+
     stages {
-        stage('Clone Repo') {
+        stage('Cleanup Workspace') {
+            steps {
+                deleteDir() // Jenkins pipeline built-in workspace cleanup
+            }
+        }
+
+        stage('Checkout') {
             steps {
                 git 'https://github.com/SAIEE12/smart_home.git'
             }
@@ -10,6 +20,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                sh 'make clean || true'
                 sh 'make'
             }
         }
