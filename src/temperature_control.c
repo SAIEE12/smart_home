@@ -3,6 +3,7 @@
 
 static int temperature = 22; // Default temperature 22°C
 int x;
+int x;
 
 void set_temperature(int temp) {
     temperature = temp;
