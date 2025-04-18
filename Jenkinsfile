@@ -21,7 +21,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'make clean || true'
-                sh 'make'
+                sh 'maske'
             }
         }
 
